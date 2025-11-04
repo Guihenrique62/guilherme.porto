@@ -91,6 +91,9 @@ export default function BackgroundAnimation() {
           className="absolute top-20 left-10 hidden lg:block"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 2 }}
         >
           <div className="bg-blue-900/40 backdrop-blur-md border border-blue-500/30 p-4 rounded-lg shadow-2xl">
             <pre className="text-xs text-blue-200 font-mono">

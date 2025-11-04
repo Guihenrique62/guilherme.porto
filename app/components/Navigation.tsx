@@ -30,7 +30,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
           >
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              &lt;SeuNome /&gt;
+              &lt;Guilherme /&gt;
             </span>
           </motion.div>
 
