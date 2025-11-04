@@ -1,73 +1,107 @@
 // app/components/Navigation.tsx
 'use client';
 
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const menuItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Projetos', href: '#projetos' },
+    { name: 'Contato', href: '#contato' },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-blue-900/30 border-b border-blue-800">
+    <motion.nav
+      className="fixed top-0 w-full z-50 backdrop-blur-md bg-blue-900/30 border-b border-blue-800"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <motion.div
+            className="flex-shrink-0"
+            whileHover={{ scale: 1.05 }}
+          >
             <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              &lt;Guilherme /&gt;
+              &lt;SeuNome /&gt;
             </span>
-          </div>
+          </motion.div>
 
           {/* Menu Desktop */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-blue-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Home
-              </a>
-              <a href="#sobre" className="text-blue-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Sobre
-              </a>
-              <a href="#projetos" className="text-blue-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Projetos
-              </a>
-              <a href="#contato" className="text-blue-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                Contato
-              </a>
+              {menuItems.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  className="text-blue-200 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors relative"
+                  whileHover={{ scale: 1.1 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.name}
+                  <motion.div
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400"
+                    whileHover={{ width: '100%' }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          {/* Menu Mobile */}
-          <div className="md:hidden">
+          {/* Menu Mobile Button */}
+          <motion.div
+            className="md:hidden"
+            whileTap={{ scale: 0.9 }}
+          >
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-blue-200 hover:text-white focus:outline-none focus:text-white"
+              className="text-blue-200 hover:text-white focus:outline-none"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
+          </motion.div>
         </div>
 
         {/* Menu Mobile Expandido */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-900/90 backdrop-blur-md rounded-lg mt-2">
-              <a href="#home" className="text-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                Home
-              </a>
-              <a href="#sobre" className="text-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                Sobre
-              </a>
-              <a href="#projetos" className="text-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                Projetos
-              </a>
-              <a href="#contato" className="text-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                Contato
-              </a>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="md:hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-900/90 backdrop-blur-md rounded-lg mt-2 border border-blue-700/30">
+                {menuItems.map((item, index) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    className="text-blue-200 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ x: 10 }}
+                  >
+                    {item.name}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
