@@ -145,7 +145,7 @@ export default function ExperienciaProfissional({ inView }: ExperienciaProfissio
         {experienceData.items.map((item) => (
           <motion.article
             key={item.id}
-            className="bg-purple-900/20 backdrop-blur-md border border-purple-700/30 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="bg-purple-900/20 border border-purple-700/30 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
             variants={cardVariants}
             whileHover="hover"
             itemScope

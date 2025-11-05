@@ -19,8 +19,8 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
         title: "Automação de Relatórios Financeiros",
         problem: "Processo manual demorado de compilação de relatórios financeiros diários",
         before: {
-          time: "4 horas/dia",
-          efficiency: "75%",
+          time: "2 horas/dia",
+          efficiency: "65%",
           errors: "15% mensais"
         },
         after: {
@@ -34,8 +34,6 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
           "Redução de 95% em erros humanos",
           "Relatórios gerados automaticamente às 6AM"
         ],
-        githubUrl: "https://github.com/guilhermeporto/automacao-relatorios",
-        metrics: "92% de eficiência alcançada"
       },
       {
         id: 5,
@@ -57,9 +55,6 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
           "Alertas de mudança de preços em tempo real",
           "Dashboard com análise competitiva"
         ],
-        demoUrl: "https://scraper-demo.guilhermeporto.dev",
-        githubUrl: "https://github.com/guilhermeporto/market-scraper",
-        metrics: "99.8% de precisão nos dados"
       },
       {
         id: 6,
@@ -176,7 +171,7 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
         {projectsData.projects.map((project) => (
           <motion.article
             key={project.id}
-            className="bg-cyan-900/20 backdrop-blur-md border border-cyan-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            className="bg-cyan-900/20 border border-cyan-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
             variants={cardVariants}
             whileHover="hover"
             itemScope
@@ -243,35 +238,6 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
                       </li>
                     ))}
                   </ul>
-                </div>
-              </div>
-
-              {/* Métricas e Links */}
-              <div className="flex justify-between items-center pt-4 mt-4 border-t border-cyan-700/30">
-                <div className="text-cyan-300 text-sm font-medium">
-                  {project.metrics}
-                </div>
-                <div className="flex gap-2">
-                  {project.demoUrl && (
-                    <motion.a
-                      href={project.demoUrl}
-                      className="flex items-center gap-2 px-3 py-1 bg-cyan-600 text-white rounded text-xs hover:bg-cyan-700 transition-all"
-                      whileHover={{ scale: 1.05 }}
-                      itemProp="url"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      Demo
-                    </motion.a>
-                  )}
-                  <motion.a
-                    href={project.githubUrl}
-                    className="flex items-center gap-2 px-3 py-1 bg-slate-800 text-slate-200 rounded text-xs hover:bg-slate-700 transition-all"
-                    whileHover={{ scale: 1.05 }}
-                    itemProp="codeRepository"
-                  >
-                    <Github className="w-3 h-3" />
-                    Código
-                  </motion.a>
                 </div>
               </div>
             </div>
