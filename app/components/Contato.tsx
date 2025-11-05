@@ -362,6 +362,7 @@ export default function Contato() {
               Não hesite em entrar em contato. Estou ansioso para ouvir sobre seu projeto ou colaborar em algo juntos!
             </p>
           </motion.div>
+
         </motion.div>
 
         {/* Conteúdo semântico oculto para SEO */}

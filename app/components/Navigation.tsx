@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -55,6 +55,16 @@ export default function Navigation() {
     }
   };
 
+  const handleDownloadCV = () => {
+    // Cria um link temporário para download
+    const link = document.createElement('a');
+    link.href = '/cv.pdf';
+    link.download = 'Guilherme_Porto_Curriculo.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       {/* Schema.org Structured Data para Navegação */}
@@ -103,11 +113,11 @@ export default function Navigation() {
 
             {/* Menu Desktop - Otimizado para SEO */}
             <div 
-              className="hidden md:block"
+              className="hidden md:flex items-center space-x-8"
               role="menubar"
               aria-label="Menu principal de navegação"
             >
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="flex items-baseline space-x-8">
                 {menuItems.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -139,13 +149,40 @@ export default function Navigation() {
                   </motion.a>
                 ))}
               </div>
+
+              {/* Botão de Download do Currículo */}
+              <motion.button
+                onClick={handleDownloadCV}
+                className="flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Baixar currículo em PDF"
+                title="Baixar currículo de Guilherme Porto"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden lg:inline">Currículo</span>
+                <span className="lg:hidden">CV</span>
+              </motion.button>
             </div>
 
             {/* Menu Mobile Button - Acessível */}
             <motion.div
-              className="md:hidden"
+              className="md:hidden flex items-center gap-4"
               whileTap={{ scale: 0.9 }}
             >
+              {/* Botão de Download do Currículo - Mobile */}
+              <motion.button
+                onClick={handleDownloadCV}
+                className="flex items-center gap-1 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-2 px-3 rounded-lg text-xs transition-all duration-300 shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Baixar currículo em PDF"
+                title="Baixar currículo de Guilherme Porto"
+              >
+                <Download className="w-3 h-3" />
+                <span>CV</span>
+              </motion.button>
+
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-blue-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-opacity-50 rounded p-1"
@@ -204,6 +241,22 @@ export default function Navigation() {
                       <meta itemProp="description" content={item.description} />
                     </motion.a>
                   ))}
+                  
+                  {/* Botão de Download no Menu Mobile */}
+                  <motion.button
+                    onClick={() => {
+                      handleDownloadCV();
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-3 px-4 rounded-lg text-base transition-all duration-300 mt-4"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    aria-label="Baixar currículo em PDF"
+                    title="Baixar currículo de Guilherme Porto"
+                  >
+                    <Download className="w-5 h-5" />
+                    Baixar Currículo PDF
+                  </motion.button>
                 </div>
               </motion.div>
             )}
@@ -229,6 +282,9 @@ export default function Navigation() {
               ))}
             </ul>
           </nav>
+          <p>
+            Inclui botão de download do currículo em PDF para fácil acesso aos dados profissionais.
+          </p>
           <p>
             Navegação responsiva desenvolvida com React, Framer Motion e Tailwind CSS, 
             otimizada para SEO e acessibilidade.
