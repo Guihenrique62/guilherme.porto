@@ -173,7 +173,7 @@ export default function ProjetosAutomacao({ inView }: ProjetosAutomacaoProps) {
       </motion.header>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        {projectsData.projects.map((project, index) => (
+        {projectsData.projects.map((project) => (
           <motion.article
             key={project.id}
             className="bg-cyan-900/20 backdrop-blur-md border border-cyan-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"

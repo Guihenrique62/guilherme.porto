@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code2, Target, Heart, Star, Book, GamepadIcon as GameController, Volleyball } from 'lucide-react';
+import { Target, Heart, Star, Book, GamepadIcon as GameController, Volleyball } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Sobre() {

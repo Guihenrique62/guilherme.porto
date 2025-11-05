@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code2, Zap, Cpu, Database, GitBranch, Bot, Workflow } from 'lucide-react';
+import { Code2, Zap, Cpu, Bot } from 'lucide-react';
 
 export default function Habilidades() {
   const [ref, inView] = useInView({

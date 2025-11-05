@@ -5,6 +5,7 @@ import BackgroundAnimation from './components/BackgroundAnimation';
 import Sobre from './components/Sobre';
 import Habilidades from './components/Habilidades';
 import Projetos from './components/Projetos';
+import Contato from './components/Contato';
 
 
 export default function Home() {
@@ -55,10 +56,8 @@ export default function Home() {
           <Sobre />
           <Habilidades />
           <Projetos />
+          <Contato />
           
-          
-          {/* Espaço para próximas seções */}
-          <section className="min-h-screen"></section>
         </article>
       </main>
     </>

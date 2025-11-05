@@ -151,7 +151,7 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
       </motion.header>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.projects.map((project, index) => (
+        {projectsData.projects.map((project) => (
           <motion.article
             key={project.id}
             className="bg-blue-900/30 backdrop-blur-md border border-blue-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"

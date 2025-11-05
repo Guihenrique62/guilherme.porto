@@ -144,7 +144,7 @@ export default function ExperienciaProfissional({ inView }: ExperienciaProfissio
       </motion.header>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        {experienceData.items.map((item, index) => (
+        {experienceData.items.map((item) => (
           <motion.article
             key={item.id}
             className="bg-purple-900/20 backdrop-blur-md border border-purple-700/30 rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
