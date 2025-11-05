@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import BackgroundAnimation from './components/BackgroundAnimation';
 import Sobre from './components/Sobre';
 import Habilidades from './components/Habilidades';
+import Projetos from './components/Projetos';
+
 
 export default function Home() {
   return (
@@ -52,6 +54,8 @@ export default function Home() {
           <Hero />
           <Sobre />
           <Habilidades />
+          <Projetos />
+          
           
           {/* Espaço para próximas seções */}
           <section className="min-h-screen"></section>
