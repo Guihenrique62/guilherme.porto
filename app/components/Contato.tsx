@@ -3,8 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
-import { Mail, Linkedin, Github, MessageCircle, MapPin, Send, Phone, User } from 'lucide-react';
+import { Mail, Linkedin, Github, MessageCircle, MapPin } from 'lucide-react';
 
 export default function Contato() {
   const [ref, inView] = useInView({
@@ -12,34 +11,25 @@ export default function Contato() {
     triggerOnce: true,
   });
 
-  const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    assunto: '',
-    mensagem: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   // Schema.org para informações de contato
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Guilherme Porto",
     "jobTitle": "Desenvolvedor Full Stack & Especialista em Automações",
-    "email": "contato@guilhermeporto.dev",
-    "telephone": "+55-11-99999-9999",
+    "email": "guilhermeportosantos1@gmail.com",
+    "telephone": "+55-62-99155-6834",
     "url": "https://guilhermeporto.dev",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "São Paulo",
-      "addressRegion": "SP",
+      "addressLocality": "Goiânia",
+      "addressRegion": "GO",
       "addressCountry": "BR"
     },
     "sameAs": [
-      "https://linkedin.com/in/guilhermeporto",
-      "https://github.com/guilhermeporto",
-      "https://wa.me/5511999999999"
+      "https://linkedin.com/in/guihenriqueporto",
+      "https://github.com/Guihenrique62",
+      "https://wa.me/5562991556834"
     ],
     "knowsAbout": [
       "React",
@@ -57,7 +47,7 @@ export default function Contato() {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -97,8 +87,8 @@ export default function Contato() {
       }
     },
     hover: {
-      y: -5,
-      scale: 1.02,
+      y: -8,
+      scale: 1.03,
       rotateY: 5,
       transition: {
         type: "spring" as const,
@@ -109,7 +99,7 @@ export default function Contato() {
 
   const iconVariants = {
     hover: {
-      scale: 1.2,
+      scale: 1.3,
       rotate: 360,
       transition: {
         type: "spring" as const,
@@ -119,36 +109,102 @@ export default function Contato() {
   };
 
   const contactInfo = {
-    email: "contato@guilhermeporto.dev",
-    linkedin: "https://linkedin.com/in/guilhermeporto",
-    github: "https://github.com/guilhermeporto",
-    whatsapp: "https://wa.me/5511999999999",
-    localizacao: "São Paulo, SP"
+    email: "guilhermeportosantos1@gmail.com",
+    linkedin: "https://linkedin.com/in/guihenriqueporto",
+    github: "https://github.com/guihenrique62",
+    whatsapp: "https://wa.me/5562991556834",
+    localizacao: "Goiania, GO, Brasil"
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+  const contactItems = [
+    {
+      id: 1,
+      icon: Mail,
+      title: "Email Profissional",
+      value: contactInfo.email,
+      href: `mailto:${contactInfo.email}`,
+      description: "Respondo em até 24 horas",
+      color: "blue",
+      schema: "email"
+    },
+    {
+      id: 2,
+      icon: Linkedin,
+      title: "LinkedIn",
+      value: "/in/guihenriqueporto",
+      href: contactInfo.linkedin,
+      description: "Vamos nos conectar profissionalmente",
+      color: "blue",
+      schema: "sameAs"
+    },
+    {
+      id: 3,
+      icon: Github,
+      title: "GitHub",
+      value: "/guihenrique62",
+      href: contactInfo.github,
+      description: "Veja meus projetos e contribuições",
+      color: "gray",
+      schema: "sameAs"
+    },
+    {
+      id: 4,
+      icon: MessageCircle,
+      title: "WhatsApp",
+      value: "+55 (62) 99155-6834",
+      href: contactInfo.whatsapp,
+      description: "Resposta rápida para conversas diretas",
+      color: "green",
+      schema: "telephone"
+    },
+    {
+      id: 5,
+      icon: MapPin,
+      title: "Localização",
+      value: contactInfo.localizacao,
+      href: "#",
+      description: "Disponível para trabalho remoto e presencial",
+      color: "cyan",
+      schema: "address"
+    }
+  ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulação de envio do formulário
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-      setFormData({
-        nome: '',
-        email: '',
-        assunto: '',
-        mensagem: ''
-      });
-    }, 2000);
+  const getColorClasses = (color: string) => {
+    const colors = {
+      blue: {
+        bg: "bg-blue-900/30",
+        border: "border-blue-700/30",
+        hoverBorder: "hover:border-blue-500/50",
+        icon: "text-blue-400",
+        text: "text-blue-200",
+        accent: "text-blue-300"
+      },
+      green: {
+        bg: "bg-green-900/20",
+        border: "border-green-700/30", 
+        hoverBorder: "hover:border-green-500/50",
+        icon: "text-green-400",
+        text: "text-green-200",
+        accent: "text-green-300"
+      },
+      gray: {
+        bg: "bg-slate-800/30",
+        border: "border-slate-700/30",
+        hoverBorder: "hover:border-slate-500/50", 
+        icon: "text-gray-400",
+        text: "text-slate-200",
+        accent: "text-slate-300"
+      },
+      cyan: {
+        bg: "bg-cyan-900/20",
+        border: "border-cyan-700/30",
+        hoverBorder: "hover:border-cyan-500/50",
+        icon: "text-cyan-400",
+        text: "text-cyan-200",
+        accent: "text-cyan-300"
+      }
+    };
+    return colors[color as keyof typeof colors] || colors.blue;
   };
 
   return (
@@ -172,6 +228,7 @@ export default function Contato() {
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-10 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
       </div>
 
       <motion.div
@@ -193,7 +250,7 @@ export default function Contato() {
             itemProp="name"
           >
             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Vamos Trabalhar Juntos?
+              Vamos Conversar?
             </span>
           </motion.h2>
           <motion.div
@@ -207,304 +264,105 @@ export default function Contato() {
             variants={itemVariants}
             itemProp="description"
           >
-            Pronto para transformar suas ideias em realidade? 
-            Entre em contato e vamos criar algo incrível juntos!
+            Entre em contato através dos canais abaixo. Estou sempre disponível para 
+            discutir novos projetos, ideias ou oportunidades de colaboração.
           </motion.p>
         </motion.header>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Informações de Contato */}
-          <motion.div
-            className="space-y-8"
-            variants={containerVariants}
-          >
-            <motion.h3
-              className="text-2xl font-bold text-blue-300 mb-6"
-              variants={itemVariants}
-            >
-              Entre em Contato
-            </motion.h3>
-
-            {/* Email */}
-            <motion.div
-              className="flex items-center gap-4 p-6 bg-blue-900/30 backdrop-blur-md border border-blue-700/30 rounded-xl hover:border-blue-500/50 transition-all duration-300"
-              variants={cardVariants}
-              whileHover="hover"
-              itemProp="email"
-            >
+        {/* Grid de Contatos - Layout Otimizado */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          variants={containerVariants}
+        >
+          {contactItems.map((item) => {
+            const colors = getColorClasses(item.color);
+            
+            return (
               <motion.div
-                variants={iconVariants}
+                key={item.id}
+                className={`${colors.bg} ${colors.border} ${colors.hoverBorder} backdrop-blur-md rounded-xl p-6 transition-all duration-300 flex flex-col h-full`}
+                variants={cardVariants}
                 whileHover="hover"
-                className="flex-shrink-0"
+                {...(item.schema === "email" && { itemProp: "email" })}
+                {...(item.schema === "telephone" && { itemProp: "telephone" })}
+                {...(item.schema === "address" && { 
+                  itemProp: "address",
+                  itemScope: true,
+                  itemType: "https://schema.org/PostalAddress"
+                })}
+                {...(item.schema === "sameAs" && { itemProp: "sameAs" })}
               >
-                <Mail className="w-6 h-6 text-blue-400" />
-              </motion.div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">Email Profissional</h4>
-                <a 
-                  href={`mailto:${contactInfo.email}`}
-                  className="text-blue-200 hover:text-cyan-300 transition-colors"
-                  aria-label="Enviar email para Guilherme Porto"
-                  title="Enviar email para contato@guilhermeporto.dev"
-                >
-                  {contactInfo.email}
-                </a>
-                <p className="text-blue-300 text-sm mt-1">
-                  Respondo em até 24 horas
-                </p>
-              </div>
-            </motion.div>
-
-            {/* LinkedIn */}
-            <motion.div
-              className="flex items-center gap-4 p-6 bg-blue-900/30 backdrop-blur-md border border-blue-700/30 rounded-xl hover:border-blue-500/50 transition-all duration-300"
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <motion.div
-                variants={iconVariants}
-                whileHover="hover"
-                className="flex-shrink-0"
-              >
-                <Linkedin className="w-6 h-6 text-blue-500" />
-              </motion.div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">LinkedIn</h4>
-                <a 
-                  href={contactInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-200 hover:text-cyan-300 transition-colors"
-                  aria-label="Visitar perfil do LinkedIn de Guilherme Porto"
-                  title="Conectar no LinkedIn"
-                  itemProp="sameAs"
-                >
-                  /in/guilhermeporto
-                </a>
-                <p className="text-blue-300 text-sm mt-1">
-                  Vamos nos conectar profissionalmente
-                </p>
-              </div>
-            </motion.div>
-
-            {/* GitHub */}
-            <motion.div
-              className="flex items-center gap-4 p-6 bg-blue-900/30 backdrop-blur-md border border-blue-700/30 rounded-xl hover:border-blue-500/50 transition-all duration-300"
-              variants={cardVariants}
-              whileHover="hover"
-            >
-              <motion.div
-                variants={iconVariants}
-                whileHover="hover"
-                className="flex-shrink-0"
-              >
-                <Github className="w-6 h-6 text-gray-400" />
-              </motion.div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">GitHub</h4>
-                <a 
-                  href={contactInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-200 hover:text-cyan-300 transition-colors"
-                  aria-label="Visitar perfil do GitHub de Guilherme Porto"
-                  title="Ver projetos no GitHub"
-                  itemProp="sameAs"
-                >
-                  /guilhermeporto
-                </a>
-                <p className="text-blue-300 text-sm mt-1">
-                  Veja meus projetos e contribuições
-                </p>
-              </div>
-            </motion.div>
-
-            {/* WhatsApp */}
-            <motion.div
-              className="flex items-center gap-4 p-6 bg-green-900/20 backdrop-blur-md border border-green-700/30 rounded-xl hover:border-green-500/50 transition-all duration-300"
-              variants={cardVariants}
-              whileHover="hover"
-              itemProp="telephone"
-            >
-              <motion.div
-                variants={iconVariants}
-                whileHover="hover"
-                className="flex-shrink-0"
-              >
-                <MessageCircle className="w-6 h-6 text-green-400" />
-              </motion.div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">WhatsApp</h4>
-                <a 
-                  href={contactInfo.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-200 hover:text-green-300 transition-colors"
-                  aria-label="Enviar mensagem no WhatsApp para Guilherme Porto"
-                  title="Conversar no WhatsApp"
-                >
-                  +55 (11) 99999-9999
-                </a>
-                <p className="text-green-300 text-sm mt-1">
-                  Resposta rápida para conversas diretas
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Localização */}
-            <motion.div
-              className="flex items-center gap-4 p-6 bg-cyan-900/20 backdrop-blur-md border border-cyan-700/30 rounded-xl hover:border-cyan-500/50 transition-all duration-300"
-              variants={cardVariants}
-              whileHover="hover"
-              itemProp="address"
-              itemScope
-              itemType="https://schema.org/PostalAddress"
-            >
-              <motion.div
-                variants={iconVariants}
-                whileHover="hover"
-                className="flex-shrink-0"
-              >
-                <MapPin className="w-6 h-6 text-cyan-400" />
-              </motion.div>
-              <div>
-                <h4 className="text-white font-semibold mb-1">Localização</h4>
-                <p className="text-cyan-200" itemProp="addressLocality">
-                  {contactInfo.localizacao}
-                </p>
-                <p className="text-cyan-300 text-sm mt-1">
-                  Disponível para projetos remotos e presenciais
-                </p>
-                <meta itemProp="addressRegion" content="SP" />
-                <meta itemProp="addressCountry" content="BR" />
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Formulário de Contato */}
-          <motion.div
-            variants={containerVariants}
-          >
-            <motion.div
-              className="bg-slate-800/30 backdrop-blur-md border border-slate-700/30 rounded-xl p-8 shadow-xl"
-              variants={cardVariants}
-            >
-              <h3 className="text-2xl font-bold text-white mb-2">
-                Envie uma Mensagem
-              </h3>
-              <p className="text-blue-200 mb-6">
-                Preencha o formulário abaixo e retornarei o mais breve possível
-              </p>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Nome */}
-                <div>
-                  <label htmlFor="nome" className="block text-sm font-medium text-blue-200 mb-2">
-                    <User className="w-4 h-4 inline mr-2" />
-                    Seu Nome *
-                  </label>
-                  <input
-                    type="text"
-                    id="nome"
-                    name="nome"
-                    value={formData.nome}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
-                    placeholder="Como posso te chamar?"
-                    aria-required="true"
-                    aria-label="Seu nome completo"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-blue-200 mb-2">
-                    <Mail className="w-4 h-4 inline mr-2" />
-                    Seu Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
-                    placeholder="seu@email.com"
-                    aria-required="true"
-                    aria-label="Seu endereço de email"
-                  />
-                </div>
-
-                {/* Assunto */}
-                <div>
-                  <label htmlFor="assunto" className="block text-sm font-medium text-blue-200 mb-2">
-                    <Phone className="w-4 h-4 inline mr-2" />
-                    Assunto *
-                  </label>
-                  <input
-                    type="text"
-                    id="assunto"
-                    name="assunto"
-                    value={formData.assunto}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
-                    placeholder="Qual o assunto da sua mensagem?"
-                    aria-required="true"
-                    aria-label="Assunto da mensagem"
-                  />
-                </div>
-
-                {/* Mensagem */}
-                <div>
-                  <label htmlFor="mensagem" className="block text-sm font-medium text-blue-200 mb-2">
-                    <MessageCircle className="w-4 h-4 inline mr-2" />
-                    Mensagem *
-                  </label>
-                  <textarea
-                    id="mensagem"
-                    name="mensagem"
-                    value={formData.mensagem}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700/50 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors resize-none"
-                    placeholder="Conte-me sobre seu projeto, ideia ou dúvida..."
-                    aria-required="true"
-                    aria-label="Sua mensagem"
-                  />
-                </div>
-
-                {/* Botão de Envio */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                >
-                  {isSubmitting ? (
+                {/* Ícone */}
+                <div className="flex items-center justify-between mb-4">
+                  <motion.div
+                    variants={iconVariants}
+                    whileHover="hover"
+                    className="flex-shrink-0"
+                  >
+                    <item.icon className={`w-8 h-8 ${colors.icon}`} />
+                  </motion.div>
+                  {item.schema === "address" && (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Enviar Mensagem
+                      <meta itemProp="addressLocality" content="São Paulo" />
+                      <meta itemProp="addressRegion" content="SP" />
+                      <meta itemProp="addressCountry" content="BR" />
                     </>
                   )}
-                </motion.button>
+                </div>
 
-                <p className="text-slate-400 text-sm text-center">
-                  * Campos obrigatórios. Seus dados estão seguros conosco.
-                </p>
-              </form>
-            </motion.div>
+                {/* Conteúdo */}
+                <div className="flex-grow">
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    {item.title}
+                  </h3>
+                  
+                  {item.href !== "#" ? (
+                    <a
+                      href={item.href}
+                      target={item.href.startsWith('http') ? "_blank" : undefined}
+                      rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                      className={`${colors.text} hover:text-white transition-colors text-base font-medium block mb-2 break-words`}
+                      aria-label={`Contato via ${item.title}: ${item.value}`}
+                      title={`Abrir ${item.title}`}
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className={`${colors.text} text-base font-medium mb-2`}>
+                      {item.value}
+                    </p>
+                  )}
+
+                  <p className={`${colors.accent} text-sm mt-auto`}>
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Efeito de brilho no hover */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Call to Action no Final */}
+        <motion.div
+          className="text-center mt-16"
+          variants={itemVariants}
+        >
+          <motion.div
+            className="bg-blue-900/20 backdrop-blur-md border border-blue-700/30 rounded-2xl p-8 max-w-2xl mx-auto"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Entre em Contato!
+            </h3>
+            <p className="text-blue-200 text-lg mb-6">
+              Não hesite em entrar em contato. Estou ansioso para ouvir sobre seu projeto ou colaborar em algo incrível juntos!
+            </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Conteúdo semântico oculto para SEO */}
         <div className="sr-only" aria-hidden="false">
@@ -515,11 +373,11 @@ export default function Contato() {
           </p>
           <h4>Canais de Contato:</h4>
           <ul>
-            <li>Email: contato@guilhermeporto.dev - Resposta em até 24 horas</li>
-            <li>LinkedIn: /in/guilhermeporto - Conexões profissionais</li>
-            <li>GitHub: /guilhermeporto - Projetos e código aberto</li>
-            <li>WhatsApp: +55 (11) 99999-9999 - Conversas rápidas</li>
-            <li>Localização: São Paulo, SP - Disponível para projetos remotos e presenciais</li>
+            <li>Email: guilhermeportosantos1@gmail.com - Resposta em até 24 horas</li>
+            <li>LinkedIn: /in/guihenriqueporto - Conexões profissionais</li>
+            <li>GitHub: /guihenrique62 - Projetos e código aberto</li>
+            <li>WhatsApp: +55 (62) 99155-6834 - Conversas rápidas</li>
+            <li>Localização: Goiânia, GO - Disponível para projetos remotos e presenciais</li>
           </ul>
           <p>
             Especializado em React, Next.js, Node.js, Python e automações. 

@@ -20,40 +20,38 @@ export default function ExperienciaProfissional({ inView }: ExperienciaProfissio
         title: "Desenvolvedor Full Stack Freelancer",
         period: "2022 - Presente",
         description: "Desenvolvimento de soluções customizadas para clientes de diversos segmentos",
-        projects: "15+ projetos entregues",
-        technologies: ["React", "Node.js", "Python", "PostgreSQL", "AWS"],
+        projects: "5+ projetos entregues",
+        technologies: ["React", "Next", "Node.js", "Python", "PostgreSQL"],
         achievements: [
-          "100% de satisfação do cliente",
+          "95% de satisfação do cliente",
           "Projetos entregues dentro do prazo",
-          "Soluções escaláveis e maintaináveis"
         ]
       },
       {
         id: 8,
-        type: "openSource",
-        title: "Contribuições Open Source",
-        period: "2021 - Presente",
-        description: "Contribuições ativas para projetos open source na comunidade",
-        projects: "8 repositórios",
-        technologies: ["JavaScript", "TypeScript", "Python", "React", "Next.js"],
+        type: "developer",
+        title: "Desenvolvedor de Automações",
+        period: "2023 - Presente",
+        description: "Desenvolvimento e manutenção de ferramentas de automação para otimização de processos",
+        projects: "10+ automações implementadas",
+        technologies: ["Python", "Node", "BotCity RPA", "n8n"],
         achievements: [
-          "50+ pull requests aceitos",
-          "Manutenção de pacotes npm",
-          "Traduções de documentação"
+          "Automação de processos manuais que resultaram em 40% de aumento de eficiência",
+          "Redução de erros humanos em tarefas repetitivas",
+          "Contribuições para projetos open-source de automação"
         ],
-        githubUrl: "https://github.com/guilhermeporto"
       },
       {
         id: 9,
         type: "certification",
         title: "Certificações Relevantes",
-        period: "2020 - 2023",
+        period: "2020 - 2025",
         description: "Certificações técnicas que validam conhecimentos e habilidades",
         items: [
-          "AWS Certified Developer Associate",
-          "Google Professional Cloud Developer",
-          "Scrum Master Certified",
-          "Python for Data Science and Machine Learning"
+          "Analise e Desenvolvimento de Sistemas - Estácio",
+          "Desenvolvimento Full Stack - OneBitCode",
+          "Ingles Profissional - Colégio Yes",
+          "Python para Data Science - Data Science Academy"
         ]
       }
     ]
@@ -201,7 +199,7 @@ export default function ExperienciaProfissional({ inView }: ExperienciaProfissio
               </div>
             )}
 
-            {item.type === 'openSource' && (
+            {item.type === 'developer' && (
               <div className="space-y-3">
                 <div className="text-purple-300 text-sm">
                   <strong>Contribuições:</strong> {item.projects}
@@ -230,17 +228,7 @@ export default function ExperienciaProfissional({ inView }: ExperienciaProfissio
                     ))}
                   </ul>
                 </div>
-                {item.githubUrl && (
-                  <motion.a
-                    href={item.githubUrl}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 text-slate-200 rounded-lg text-sm font-medium hover:bg-slate-700 transition-all mt-4"
-                    whileHover={{ scale: 1.05 }}
-                    itemProp="url"
-                  >
-                    <Github className="w-4 h-4" />
-                    Ver GitHub
-                  </motion.a>
-                )}
+                
               </div>
             )}
 
