@@ -359,7 +359,7 @@ export default function Contato() {
               Entre em Contato!
             </h3>
             <p className="text-blue-200 text-lg mb-6">
-              Não hesite em entrar em contato. Estou ansioso para ouvir sobre seu projeto ou colaborar em algo incrível juntos!
+              Não hesite em entrar em contato. Estou ansioso para ouvir sobre seu projeto ou colaborar em algo juntos!
             </p>
           </motion.div>
         </motion.div>

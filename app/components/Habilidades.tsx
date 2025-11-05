@@ -139,19 +139,16 @@ export default function Habilidades() {
         {
           category: "Frontend",
           technologies: ["React", "Next", "Vue", "JavaScript", "TypeScript"],
-          level: 95,
           color: "from-blue-500 to-cyan-500"
         },
         {
           category: "Backend", 
           technologies: ["Node.js", "Python", "MySQL", "PostgreSQL", "MongoDB"],
-          level: 90,
           color: "from-green-500 to-emerald-500"
         },
         {
           category: "DevOps",
           technologies: ["Git", "Docker", "CI/CD", "AWS", "Linux", "Nginx"],
-          level: 85,
           color: "from-purple-500 to-pink-500"
         }
       ]
@@ -164,19 +161,16 @@ export default function Habilidades() {
         {
           category: "Automação de Processos (RPA)",
           technologies: ["Robotic Process Automation", "Automação Web", "Macros", "Workflows"],
-          level: 92,
           color: "from-orange-500 to-red-500"
         },
         {
           category: "Bots e Scrapers",
           technologies: ["Web Scraping", "Data Extraction", "Chatbots", "Automação de Tarefas"],
-          level: 88,
           color: "from-yellow-500 to-amber-500"
         },
         {
           category: "Scripts Personalizados",
           technologies: ["Python Scripts", "Bash Scripting", "Automação Customizada", "CLI Tools"],
-          level: 94,
           color: "from-teal-500 to-green-500"
         }
       ]
@@ -291,27 +285,6 @@ export default function Habilidades() {
                       {category.category}
                     </h4>
                     
-                    {/* Barra de Progresso Animada */}
-                    <div className="w-full bg-blue-800/50 rounded-full h-2 mb-3">
-                      <motion.div
-                        className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
-                        variants={skillBarVariants}
-                        custom={category.level}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        aria-label={`Nível de habilidade em ${category.category}: ${category.level}%`}
-                        role="progressbar"
-                        aria-valuenow={category.level}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
-                    
-                    <div className="text-right">
-                      <span className="text-sm text-blue-300 font-medium">
-                        {category.level}% Domínio
-                      </span>
-                    </div>
                   </header>
 
                   <div className="flex flex-wrap gap-2">
@@ -386,27 +359,7 @@ export default function Habilidades() {
                       {category.category}
                     </h4>
                     
-                    {/* Barra de Progresso Animada */}
-                    <div className="w-full bg-cyan-800/50 rounded-full h-2 mb-3">
-                      <motion.div
-                        className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
-                        variants={skillBarVariants}
-                        custom={category.level}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        aria-label={`Nível de habilidade em ${category.category}: ${category.level}%`}
-                        role="progressbar"
-                        aria-valuenow={category.level}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      />
-                    </div>
                     
-                    <div className="text-right">
-                      <span className="text-sm text-cyan-300 font-medium">
-                        {category.level}% Domínio
-                      </span>
-                    </div>
                   </header>
 
                   <div className="flex flex-wrap gap-2">

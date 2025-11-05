@@ -3,6 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { Code2, ExternalLink, Github, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 interface ProjetosFullStackProps {
   inView: boolean;
@@ -16,41 +17,41 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
     projects: [
       {
         id: 1,
-        title: "Sistema de Gestão Empresarial",
-        description: "Plataforma completa para gestão de negócios com dashboard em tempo real",
-        image: "/projetos/gestao-empresarial.jpg",
+        title: "Sistema de Gestão de Produtos",
+        description: "Plataforma completa para gestão de produtos com dashboard em tempo real",
+        image: "/projetos/gestao-produtos.png",
         technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Socket.io"],
         challenges: [
           "Processamento de grandes volumes de dados em tempo real",
           "Sincronização multi-usuário sem conflitos",
           "Otimização de performance para relatórios complexos"
         ],
-        demoUrl: "https://gestao-demo.guilhermeporto.dev",
-        githubUrl: "https://github.com/guilhermeporto/sistema-gestao",
+        demoUrl: "https://lishub.vercel.app/login",
+        githubUrl: "https://github.com/Guihenrique62/product_management_crm",
         status: "Em produção",
         featured: true
       },
       {
         id: 2,
-        title: "E-commerce Plataforma",
-        description: "Loja virtual com sistema de pagamentos integrado e gestão de estoque",
-        image: "/projetos/ecommerce-platform.jpg",
+        title: "Landing Page Conversacional",
+        description: "Landing page otimizada para conversão com foco em captação de leads",
+        image: "/projetos/landing-page.png",
         technologies: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "NextAuth"],
         challenges: [
           "Integração segura com múltiplos gateways de pagamento",
           "Otimização SEO para produtos e categorias",
           "Cache inteligente para alta disponibilidade"
         ],
-        demoUrl: "https://ecommerce-demo.guilhermeporto.dev",
-        githubUrl: "https://github.com/guilhermeporto/ecommerce-platform",
+        demoUrl: "https://apiario-porto.vercel.app",
+        githubUrl: "https://github.com/Guihenrique62/apiario_porto",
         status: "Live",
         featured: true
       },
       {
         id: 3,
-        title: "App de Task Management",
-        description: "Aplicativo de gerenciamento de tarefas com colaboração em tempo real",
-        image: "/projetos/task-management.jpg",
+        title: "CRM de Viagens",
+        description: "Aplicativo de gerenciamento de viagens com colaboração em tempo real",
+        image: "/projetos/crm-viagens.png",
         technologies: ["Vue.js", "Express.js", "Socket.io", "SQLite", "JWT"],
         challenges: [
           "Sincronização em tempo real entre múltiplos dispositivos",
@@ -58,7 +59,6 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
           "Notificações push para deadlines"
         ],
         demoUrl: "https://tasks-demo.guilhermeporto.dev",
-        githubUrl: "https://github.com/guilhermeporto/task-manager",
         status: "Em desenvolvimento",
         featured: false
       }
@@ -154,7 +154,7 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
         {projectsData.projects.map((project) => (
           <motion.article
             key={project.id}
-            className="bg-blue-900/30 backdrop-blur-md border border-blue-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            className="bg-blue-900/30 border border-blue-700/30 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
             variants={cardVariants}
             whileHover="hover"
             itemScope
@@ -163,7 +163,13 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
             {/* Imagem do Projeto */}
             <div className="relative h-48 bg-gradient-to-br from-blue-600 to-cyan-600 overflow-hidden">
               <div className="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                <Code2 className="w-16 h-16 text-blue-400 opacity-50" />
+                <Image
+                      src={project.image}
+                      alt={`Imagem do projeto ${project.title}`}
+                      width={240} 
+                      height={240} 
+                      className="w-full h-full object-cover" 
+                  />
               </div>
               {project.featured && (
                 <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full">
@@ -232,6 +238,8 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
                     Demo
                   </motion.a>
                 )}
+
+                {project.githubUrl && (
                 <motion.a
                   href={project.githubUrl}
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-slate-200 rounded-lg text-sm font-medium hover:bg-slate-700 transition-all"
@@ -243,11 +251,16 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
                   <Github className="w-4 h-4" />
                   Código
                 </motion.a>
+                )}
               </div>
             </div>
           </motion.article>
         ))}
+
       </div>
+      <div className="flex flex-col items-center text-center pt-12 w-full">
+          <p>Entre outros</p>
+        </div>
     </motion.section>
   );
 }
