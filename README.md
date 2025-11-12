@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio - Guilherme Porto
 
-## Getting Started
+## 📋 Descrição
 
-First, run the development server:
+Portfolio profissional desenvolvido para apresentar minhas habilidades como Desenvolvedor Full Stack e Especialista em Automações. O site apresenta uma interface moderna e responsiva com animações fluidas, destacando meus projetos, habilidades técnicas e informações de contato.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Características
+
+- **Design Moderno**: Interface limpa com gradientes e animações suaves
+- **Totalmente Responsivo**: Adaptado para todos os dispositivos
+- **Otimizado para SEO**: Estrutura semântica e meta tags
+- **Performance**: Carregamento rápido e otimizado
+- **Acessibilidade**: Desenvolvido seguindo as melhores práticas de acessibilidade
+
+## 🛠️ Tecnologias Utilizadas
+
+### Dependencies
+- **Next.js 15.5.5** - Framework React para produção
+- **React 19.1.0** - Biblioteca para interfaces de usuário
+- **React DOM 19.1.0** - Renderização do React para a web
+- **Framer Motion 12.23.24** - Biblioteca de animações
+- **Lucide React 0.552.0** - Ícones
+- **React Intersection Observer 10.0.0** - Detecção de elementos na viewport
+- **Critters 0.0.25** - Otimização de CSS crítico
+
+### Dev Dependencies
+- **TypeScript 5** - Superset JavaScript com tipagem
+- **Tailwind CSS 4** - Framework CSS utilitário
+- **ESLint 9** - Linter para código JavaScript/TypeScript
+- **@types/node, @types/react, @types/react-dom** - Definições de tipos TypeScript
+
+## 🚀 Como Instalar e Executar
+
+### Pré-requisitos
+- Node.js 18+ instalado
+- npm ou yarn
+
+### Passos para instalação
+
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/Guihenrique62/portfolio.git
+   cd portfolio
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. **Execute em modo de desenvolvimento**
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+4. **Acesse o projeto**
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
+
+### Comandos disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera a build de produção
+- `npm run start` - Inicia o servidor de produção
+- `npm run lint` - Executa o ESLint
+
+## 📁 Estrutura do Projeto
+
+```
+portfolio/
+├── components/          # Componentes React reutilizáveis
+├── pages/              # Páginas da aplicação
+├── public/             # Arquivos estáticos
+├── styles/             # Arquivos de estilo
+├── types/              # Definições TypeScript
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Personalização
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para personalizar este portfolio com suas informações:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Altere as informações pessoais nos componentes
+2. Atualize as cores no arquivo de configuração do Tailwind
+3. Substitua as imagens na pasta `public`
+4. Modifique o conteúdo das seções (Sobre, Projetos, Habilidades, Contato)
 
-## Learn More
+## 📞 Contato
 
-To learn more about Next.js, take a look at the following resources:
+- **Email**: guilhermeportosantos1@gmail.com
+- **LinkedIn**: [linkedin.com/in/guihenriqueporto](https://linkedin.com/in/guihenriqueporto)
+- **GitHub**: [github.com/Guihenrique62](https://github.com/Guihenrique62)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido com ❤️ por Guilherme Porto
