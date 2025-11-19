@@ -58,7 +58,7 @@ export default function ProjetosFullStack({ inView }: ProjetosFullStackProps) {
           "Interface drag-and-drop responsiva",
           "Notificações push para deadlines"
         ],
-        demoUrl: "https://tasks-demo.guilhermeporto.dev",
+        demoUrl: "https://agroviagens.gestoragrocontar.com.br/login",
         status: "Em desenvolvimento",
         featured: false
       }
